@@ -1,5 +1,5 @@
 <template>
-    <div class="content-center items-center mx-auto px-4 py-5">
+    <div class="content-center items-center mx-auto px-4 py-5 grow">
         <div class="flex-row justify-center px-4 py-5">
             <header class="shadow rounded w-full focus:outline-none focus:shadow-outline px-4 py-4 text-center">
                 <p class="text-3xl py-2">Cálculo das raízes de uma equação do 2° grau</p>
@@ -43,14 +43,14 @@
             </p>
         </div>
         <div class="flex-row justify-center px-4 py-5" v-if="coef_a && coef_b">
-            <footer
+            <div
                 class="flex-row justify-center shadow rounded text-2xl focus:outline-none focus:shadow-outline px-4 py-4 text-center">
                 <div class="pb-2" v-text="resposta"></div>
                 <div id="x1">x1 = {{ equacao2Grau(coef_a, coef_b, coef_c)[0] }}</div>
                 <!-- Return value from position in array -->
                 <div id="x2">x2 = {{ equacao2Grau(coef_a, coef_b, coef_c)[1] }}</div>
                 <!-- Return value from position in array -->
-            </footer>
+            </div>
         </div>
     </div>
 </template>
