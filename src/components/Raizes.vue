@@ -73,15 +73,13 @@
 <script>
 export default {
     name: 'Raízes',
-    data() {
-        return {
-            coef_a: null,
-            coef_b: null,
-            coef_c: null,
-            resposta: '',
-            project_link: 'https://github.com/zapsys/equacoes-2-grau/'
-        }
-    },
+    data: () => ({
+        coef_a: null,
+        coef_b: null,
+        coef_c: null,
+        resposta: '',
+        project_link: 'https://github.com/zapsys/equacoes-2-grau/'
+    }),
     methods: {
         equacao2Grau(a, b, c) {
             let delta, x1, x2, answer
