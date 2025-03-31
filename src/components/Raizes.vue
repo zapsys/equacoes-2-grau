@@ -84,7 +84,7 @@ export default {
     },
     methods: {
         equacao2Grau(a, b, c) {
-            let delta, x1, x2, answer, reply
+            let delta, x1, x2, answer
 
             answer = Array() // or answer = []
 
