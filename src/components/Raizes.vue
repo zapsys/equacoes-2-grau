@@ -1,5 +1,5 @@
 <template>
-    <div class="content-center items-center mx-auto px-4 py-5 grow">
+    <div class="justify-center items-center mx-auto px-4 py-5 grow">
         <div class="flex-row justify-center px-4 py-5">
             <header class="shadow rounded w-full focus:outline-none focus:shadow-outline px-4 py-4 text-center">
                 <p class="text-3xl py-2">Cálculo das raízes de uma equação do 2° grau</p>
