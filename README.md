@@ -1,7 +1,7 @@
 # RESOLUÇÃO DE EQUAÇÕES DO 2° GRAU
 Aplicativo que apresenta as raízes de uma equação do segundo grau, sejam elas reais ou imaginárias.
 
-Construído utilizando o framework [Vue 3](https://vuejs.org/guide/introduction.html) com [Vite](https://vitejs.dev/) e [TailwindCSS](https://tailwindcss.com)
+Construído utilizando os frameworks [Vue 3](https://vuejs.org/guide/introduction.html) e [TailwindCSS](https://tailwindcss.com) com a ferramenta de construção [Vite](https://vitejs.dev/).
 
 ## Download
 No terminal clone o projeto:
