@@ -46,9 +46,9 @@
             <div
                 class="flex-row justify-center shadow rounded text-2xl focus:outline-none focus:shadow-outline px-4 py-4 text-center">
                 <div class="pb-2" v-text="resposta"></div>
-                <div id="x1">x1 = {{ equacao2Grau(coef_a, coef_b, coef_c)[0] }}</div>
+                <div id="x1">x<sub>1</sub> = {{ equacao2Grau(coef_a, coef_b, coef_c)[0] }}</div>
                 <!-- Return value from position in array -->
-                <div id="x2">x2 = {{ equacao2Grau(coef_a, coef_b, coef_c)[1] }}</div>
+                <div id="x2">x<sub>2</sub> = {{ equacao2Grau(coef_a, coef_b, coef_c)[1] }}</div>
                 <!-- Return value from position in array -->
             </div>
         </div>
