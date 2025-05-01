@@ -74,6 +74,7 @@
     </div>
 </template>
 <script>
+import functionPlot from 'function-plot'
 export default {
     name: 'Raízes',
     data: () => ({
@@ -81,8 +82,16 @@ export default {
         coef_b: null,
         coef_c: null,
         resposta: '',
-        project_link: 'https://github.com/zapsys/equacoes-2-grau/'
+        project_link: 'https://github.com/zapsys/equacoes-2-grau/',
+        showModal: false
     }),
+    watch: {
+        showModal(val) {
+            if (val) {
+                this.plotGraph()
+            }
+        },
+    },
     methods: {
         isNumber: function (evt) {
             evt = evt
@@ -132,6 +141,29 @@ export default {
                 this.resposta = 'Raízes:'
                 return answer
             }
+        },
+        plotGraph() {
+            const a = parseFloat(this.coef_a) || 0
+            const b = parseFloat(this.coef_b) || 0
+            const c = parseFloat(this.coef_c) || 0
+
+            // Wait for the DOM to update before rendering the graph
+            this.$nextTick(() => {
+                functionPlot({
+                    target: '#plot',
+                    width: 500,
+                    height: 400,
+                    xAxis: { label: 'Eixo x' },
+                    yAxis: { label: 'Eixo y' },
+                    grid: true,
+                    data: [
+                        {
+                            fn: `${a} * x^2 + ${b} * x + ${c}`,
+                            graphType: 'interval',
+                        },
+                    ],
+                });
+            });
         },
     },
 }
