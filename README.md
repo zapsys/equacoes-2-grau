@@ -1,7 +1,7 @@
 # RESOLUÇÃO DE EQUAÇÕES DO 2° GRAU
-Aplicativo que apresenta as raízes de uma equação do segundo grau, sejam elas reais ou imaginárias.
+Aplicativo que apresenta as raízes de uma equação do segundo grau, sejam elas reais ou imaginárias com a possibilidade de visualizar seu gráfico.
 
-Construído utilizando os frameworks [Vue 3](https://vuejs.org/guide/introduction.html) e [TailwindCSS](https://tailwindcss.com) com a ferramenta de construção [Vite](https://vitejs.dev/).
+Construído utilizando os frameworks [Vue 3](https://vuejs.org/guide/introduction.html) e [TailwindCSS](https://tailwindcss.com), com a ferramenta de construção [Vite](https://vitejs.dev/) e a biblioteca para plotar funções 2D [Function Plot](https://mauriciopoppe.github.io/function-plot/)
 
 ## Download
 No terminal clone o projeto:
