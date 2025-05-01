@@ -12,7 +12,8 @@
                 </label>
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="a" type="text" pattern="[0-9]+" v-model="coef_a" @focus="$event.target.select()">
+                    id="a" type="text" pattern="[0-9]+" v-model="coef_a" @focus="$event.target.select()"
+                    @keypress="isNumber($event)">
             </div>
             <div class="m-2">
                 <label class="block text-xl text-gray-700 font-bold mb-2" for="b">
@@ -20,7 +21,8 @@
                 </label>
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="b" type="text" pattern="[0-9]+" v-model="coef_b" @focus="$event.target.select()">
+                    id="b" type="text" pattern="[0-9]+" v-model="coef_b" @focus="$event.target.select()"
+                    @keypress="isNumber($event)">
             </div>
             <div class="m-2">
                 <label class="block text-xl text-gray-700 font-bold mb-2" for="c">
@@ -28,7 +30,8 @@
                 </label>
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="c" type="text" pattern="[0-9]+" v-model="coef_c" @focus="$event.target.select()">
+                    id="c" type="text" pattern="[0-9]+" v-model="coef_c" @focus="$event.target.select()"
+                    @keypress="isNumber($event)">
             </div>
         </div>
         <div class="flex-row justify-center px-4 py-5">
@@ -81,6 +84,15 @@ export default {
         project_link: 'https://github.com/zapsys/equacoes-2-grau/'
     }),
     methods: {
+        isNumber: function (evt) {
+            evt = evt
+            let charCode = (evt.which) ? evt.which : evt.keyCode
+            if ((charCode > 31 && (charCode < 48 || charCode > 57)) && (charCode !== 45)) {
+                evt.preventDefault()
+            } else {
+                return true
+            }
+        },
         equacao2Grau(a, b, c) {
             let delta, x1, x2, answer
 
