@@ -55,6 +55,29 @@
                 <!-- Return value from position in array -->
             </div>
         </div>
+        <!-- Modal function window -->
+        <div>
+            <div class="flex justify-center items-center">
+                <button @click="showModal = true" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                    v-if="coef_a">
+                    Mostrar Gráfico
+                </button>
+            </div>
+            <div v-if="showModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
+                <div class="bg-white rounded-lg shadow-lg w-11/12 md:w-2/3 lg:w-1/2 p-6 relative">
+                    <button @click="showModal = false" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+                        ✖
+                    </button>
+                    <h2 class="text-xl font-bold text-center mb-4">Gráfico da Equação</h2>
+                    <p class="text-center mb-3">y = {{ coef_a }}x² + {{ coef_b }}x + {{ coef_c }}</p>
+                    <p class="text-center mb-3" v-text="resposta"></p>
+                    <p class="text-center">x<sub>1</sub> = {{ equacao2Grau(coef_a, coef_b, coef_c)[0] }} ;
+                        x<sub>2</sub> = {{ equacao2Grau(coef_a, coef_b, coef_c)[1] }}</p>
+                    <div id="plot" class="flex justify-center items-center w-full h-100">
+                    </div>
+                </div>
+            </div>
+        </div>
         <footer class="flex-row shadow rounded z-20 justify-center mx-4 px-4 py-3 mt-5">
             <ul
                 class="flex flex-wrap justify-between items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0 text-center">
