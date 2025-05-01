@@ -41,7 +41,7 @@
                     v-else-if="coef_b && coef_b < 0"> - {{ Math.abs(coef_b) }}x </span> <span v-else-if="coef_b"> + {{
                         coef_b }}x</span> <span v-if="coef_c && coef_c > 0"> +
                     {{ coef_c }}</span> <span v-else-if="coef_c && coef_c < 0"> - {{ Math.abs(coef_c) }} </span> <span
-                    v-else-if="coef_c"> + {{ coef_c }}</span>
+                    v-else-if="coef_c != 0"> + {{ coef_c }}</span>
                 = 0
             </p>
         </div>
@@ -69,7 +69,12 @@
                         ✖
                     </button>
                     <h2 class="text-xl font-bold text-center mb-4">Gráfico da Equação</h2>
-                    <p class="text-center mb-3">y = {{ coef_a }}x² + {{ coef_b }}x + {{ coef_c }}</p>
+                    <p class="text-center mb-3">y = {{ coef_a }}x² <span v-if="coef_b && coef_b > 0"> + {{ coef_b }}x
+                        </span> <span v-else-if="coef_b && coef_b < 0"> - {{ Math.abs(coef_b) }}x </span> <span
+                            v-else-if="coef_b"> + {{
+                                coef_b }}x</span> <span v-if="coef_c && coef_c > 0"> +
+                            {{ coef_c }}</span> <span v-else-if="coef_c && coef_c < 0"> - {{ Math.abs(coef_c) }} </span>
+                        <span v-else-if="coef_c != 0"> + {{ coef_c }}</span></p>
                     <p class="text-center mb-3" v-text="resposta"></p>
                     <p class="text-center">x<sub>1</sub> = {{ equacao2Grau(coef_a, coef_b, coef_c)[0] }} ;
                         x<sub>2</sub> = {{ equacao2Grau(coef_a, coef_b, coef_c)[1] }}</p>
