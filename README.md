@@ -25,7 +25,7 @@ npm run dev
 Acesse a url http://localhost:5173 no navegador.
 
 ## Demo
-[Equacoes-2-grau](https://equacoes-2-grau.onrender.com/)
+[Equacoes-2-grau (versão sem gráfico)](https://equacoes-2-grau.onrender.com/)
 
 ## License
 Este projeto está sob a licença MIT, que permite o download, execução, alteração, redistribuição, tanto para uso privado como comercial do código fonte, desde que citado o autor. 
