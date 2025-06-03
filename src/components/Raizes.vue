@@ -13,7 +13,7 @@
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="a" type="text" pattern="[0-9]+" v-model="coef_a" @focus="$event.target.select()"
-                    @keypress="isNumber($event)">
+                    @keypress="isNumber($event)" placeholder="Apenas números inteiros">
             </div>
             <div class="m-2">
                 <label class="block text-xl text-gray-700 font-bold mb-2" for="b">
@@ -22,7 +22,7 @@
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="b" type="text" pattern="[0-9]+" v-model="coef_b" @focus="$event.target.select()"
-                    @keypress="isNumber($event)">
+                    @keypress="isNumber($event)" placeholder="Apenas números inteiros">
             </div>
             <div class="m-2">
                 <label class="block text-xl text-gray-700 font-bold mb-2" for="c">
@@ -31,7 +31,7 @@
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="c" type="text" pattern="[0-9]+" v-model="coef_c" @focus="$event.target.select()"
-                    @keypress="isNumber($event)">
+                    @keypress="isNumber($event)" placeholder="Apenas números inteiros">
             </div>
         </div>
         <div class="flex-row justify-center px-4 py-5">
