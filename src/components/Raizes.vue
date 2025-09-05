@@ -108,18 +108,6 @@
         </footer>
     </div>
 </template>
-<style scoped>
-@media print {
-    .modal {
-        position: absolute;
-        left: 0;
-        top: 0;
-        margin: 0;
-        padding: 0;
-        overflow: visible !important;
-    }
-}
-</style>
 <script>
 import functionPlot from 'function-plot'
 export default {
