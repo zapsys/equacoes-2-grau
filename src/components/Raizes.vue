@@ -63,9 +63,12 @@
                     Mostrar Gráfico
                 </button>
             </div>
-            <div v-if="showModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
-                <div class="bg-white rounded-lg shadow-lg w-11/12 md:w-2/3 lg:w-1/2 p-6 relative">
-                    <button @click="showModal = false" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+            <div v-if="showModal"
+                class="modal fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
+                <div :class="showCloseButton ? 'rounded-lg shadow-lg' : ''"
+                    class="bg-white w-11/12 md:w-2/3 lg:w-1/2 p-6 relative">
+                    <button @click="showModal = false" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+                        v-if="showCloseButton">
                         ✖
                     </button>
                     <h2 class="text-xl font-bold text-center mb-4">Gráfico da Equação</h2>
@@ -78,7 +81,11 @@
                     <p class="text-center mb-3" v-text="resposta"></p>
                     <p class="text-center">x<sub>1</sub> = {{ equacao2Grau(coef_a, coef_b, coef_c)[0] }} ;
                         x<sub>2</sub> = {{ equacao2Grau(coef_a, coef_b, coef_c)[1] }}</p>
-                    <div id="plot" class="flex justify-center items-center w-full h-100">
+                    <div id="plot" class="flex justify-center items-center w-full h-100"></div>
+                    <div class="flex justify-center mt-4" v-if="showPrintButton">
+                        <button @click="printPlot" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                            Imprimir Gráfico
+                        </button>
                     </div>
                 </div>
             </div>
@@ -101,6 +108,18 @@
         </footer>
     </div>
 </template>
+<style scoped>
+@media print {
+    .modal {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        overflow: visible !important;
+    }
+}
+</style>
 <script>
 import functionPlot from 'function-plot'
 export default {
@@ -111,14 +130,26 @@ export default {
         coef_c: null,
         resposta: '',
         project_link: 'https://github.com/zapsys/equacoes-2-grau/',
-        showModal: false
+        showModal: false,
+        showPrintButton: true,
+        showCloseButton: true
     }),
     watch: {
         showModal(val) {
             if (val) {
+                this.showPrintButton = true
+                this.showCloseButton = true
                 this.plotGraph()
             }
         },
+    },
+    mounted() { // Restore modal window if user returns from or cancel print
+        window.onafterprint = () => {
+            if (this.showModal) {
+                this.showPrintButton = true
+                this.showCloseButton = true
+            }
+        }
     },
     methods: {
         isNumber: function (evt) {
@@ -192,6 +223,13 @@ export default {
                     ],
                 });
             });
+        },
+        printPlot() {
+            this.showPrintButton = false
+            this.showCloseButton = false
+            this.$nextTick(() => {
+                window.print()
+            })
         },
     },
 }
